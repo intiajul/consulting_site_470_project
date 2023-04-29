@@ -4,17 +4,17 @@
 
       <div class="owl-carousel wow fadeInUp" id="doctorSlideshow">
 
-      @foreach($doctor as $doctors)
+      @foreach ($ambulance as $ambulances)
 
         <div class="item">
           <div class="card-doctor">
             <div class="header">
-              <img src="doctorimage/{{$doctors->image}}" alt="">
+              <img src="ambulanceimage/{{$ambulances->image}}" alt="">
               
             </div>
             <div class="body">
-              <p class="text-xl mb-0">{{$doctors->name}}</p>
-              <span class="text-sm text-grey">{{$doctors->speciality}}</span>
+              <p class="text-xl mb-0">{{$ambulances->name}}</p>
+              <span class="text-sm text-grey">{{$ambulances->phone}}</span>
             </div>
           </div>
         </div>

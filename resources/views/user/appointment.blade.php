@@ -1,3 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <meta name="copyright" content="MACode ID, https://macodeid.com/">
+
+  <title>One Health - Medical Center HTML5 Template</title>
+
+  <link rel="stylesheet" href="../assets/css/maicons.css">
+
+  <link rel="stylesheet" href="../assets/css/bootstrap.css">
+
+  <link rel="stylesheet" href="../assets/vendor/owl-carousel/css/owl.carousel.css">
+
+  <link rel="stylesheet" href="../assets/vendor/animate/animate.css">
+
+  <link rel="stylesheet" href="../assets/css/theme.css">
+</head>
+
 <div class="page-section">
     <div class="container">
       <h1 class="text-center wow fadeInUp">Make an Appointment</h1>
@@ -17,7 +40,7 @@
           </div>
           <div class="col-12 col-sm-6 py-2 wow fadeInRight" data-wow-delay="300ms">
             <select name="doctor" id="departement" class="custom-select">
-            <option>---select doctors---</option>
+            <option>---select doctor---</option>
             @foreach($doctor as $doctors)
               <option value="{{$doctors->name}}">{{$doctors->name}} --speciality--  {{$doctors->speciality}} --fee-- {{$doctors->fee}}</option>
             @endforeach

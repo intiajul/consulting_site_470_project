@@ -8,7 +8,7 @@
 
   <meta name="copyright" content="MACode ID, https://macodeid.com/">
 
-  <title>One Health - Medical Center HTML5 Template</title>
+  <title>One Health Hospital</title>
 
   <link rel="stylesheet" href="../assets/css/maicons.css">
 
@@ -31,17 +31,17 @@
         <div class="row">
           <div class="col-sm-8 text-sm">
             <div class="site-info">
-              <a href="#"><span class="mai-call text-primary"></span> +00 123 4455 6666</a>
+              <a href="#"><span class="mai-call text-primary"></span> +02 9569977</a>
               <span class="divider">|</span>
-              <a href="#"><span class="mai-mail text-primary"></span> mail@example.com</a>
+              <a href="#"><span class="mai-mail text-primary"></span> mail@onelive.com</a>
             </div>
           </div>
           <div class="col-sm-4 text-right text-sm">
             <div class="social-mini-button">
-              <a href="#"><span class="mai-logo-facebook-f"></span></a>
-              <a href="#"><span class="mai-logo-twitter"></span></a>
-              <a href="#"><span class="mai-logo-dribbble"></span></a>
-              <a href="#"><span class="mai-logo-instagram"></span></a>
+              <a href="facebook.com"><span class="mai-logo-facebook-f"></span></a>
+              <a href="twitter.com"><span class="mai-logo-twitter"></span></a>
+              
+              <a href="instagram.com"><span class="mai-logo-instagram"></span></a>
             </div>
           </div>
         </div> <!-- .row -->
@@ -50,7 +50,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
       <div class="container">
-        <a class="navbar-brand" href="#"><span class="text-primary">One</span>-Health</a>
+        <a class="navbar-brand" href="{{url('/')}}"><span class="text-primary">One</span>-Live</a>
 
         <form action="#">
           <div class="input-group input-navbar">
@@ -68,24 +68,29 @@
         <div class="collapse navbar-collapse" id="navbarSupport">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="index.html">Home</a>
+              <a class="nav-link" href="{{url('/')}}">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="about.html">About Us</a>
+              <a class="nav-link" href="{{url('about.html')}}">About Us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="doctors.html">Doctors</a>
+            <a href="{{asset('doctors.html')}}">Doctors</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="blog.html">News</a>
+              <a class="nav-link" href="{{url('/')}}">News</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact</a>
+              <a class="nav-link" href="{{url('/')}}">Contact</a>
             </li>
 
             @if(Route::has('login'))
 
             @auth 
+
+            <li class="nav-item">
+              <a class="nav-link" style="background-color:greenyellow;" href="{{'myappointment'}}">My Appointment</a>
+            </li>
+
             <x-app-layout>
               
             </x-app-layout>
@@ -107,6 +112,18 @@
       </div> <!-- .container -->
     </nav>
   </header>
+
+  @if(session()->has('message'))
+
+        <div class="alert alert-success">
+          <button type="button" class="close" data-dismiss="alert">
+          x
+          </button>
+          {{session()->get('message')}}
+
+        </div>
+        @endif
+
 
   <div class="page-hero bg-image overlay-dark" style="background-image: url(../assets/img/bg_image_1.jpg);">
     <div class="hero-section">
@@ -156,8 +173,14 @@
         <div class="row align-items-center">
           <div class="col-lg-6 py-3 wow fadeInUp">
             <h1>Welcome to Your Health <br> Center</h1>
-            <p class="text-grey mb-4">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Accusantium aperiam earum ipsa eius, inventore nemo labore eaque porro consequatur ex aspernatur. Explicabo, excepturi accusantium! Placeat voluptates esse ut optio facilis!</p>
-            <a href="about.html" class="btn btn-primary">Learn More</a>
+            <p class="text-grey mb-4">Welcome to One-Live hospital, where your health and well-being are our top priority. We are dedicated to providing the highest quality medical care with compassion and expertise.
+
+Our state-of-the-art facilities and cutting-edge technology ensure that you receive the best possible treatment for your medical needs. Our team of highly skilled and experienced healthcare professionals is committed to providing personalized care that is tailored to your individual needs.
+
+That's why we strive to create a warm and welcoming environment that promotes healing and recovery.
+
+We are here for you every step of the way, from diagnosis to treatment and beyond. Thank you for choosing [Hospital Name] as your healthcare provider.</p>
+            
           </div>
           <div class="col-lg-6 wow fadeInRight" data-wow-delay="400ms">
             <div class="img-place custom-img-1">
@@ -170,11 +193,13 @@
   </div> <!-- .bg-light -->
 
   @include ('user.doctors')
+  @include ('user.showambulance')
+  
 
   @include ('user.latest') <!-- .page-section -->
 
   @include ('user.appointment') <!-- .page-section -->
-
+  
   
 
   <footer class="page-footer">
@@ -208,24 +233,24 @@
         </div>
         <div class="col-sm-6 col-lg-3 py-3">
           <h5>Contact</h5>
-          <p class="footer-link mt-2">351 Willow Street Franklin, MA 02038</p>
-          <a href="#" class="footer-link">701-573-7582</a>
-          <a href="#" class="footer-link">healthcare@temporary.net</a>
+          <p class="footer-link mt-2">351 street, Gulshan - 02, Dhaka-1212</p>
+          <a href="#" class="footer-link">+02 9569977</a>
+          <a href="#" class="footer-link">onelive@temporary.net</a>
 
           <h5 class="mt-3">Social Media</h5>
           <div class="footer-sosmed mt-3">
             <a href="#" target="_blank"><span class="mai-logo-facebook-f"></span></a>
             <a href="#" target="_blank"><span class="mai-logo-twitter"></span></a>
-            <a href="#" target="_blank"><span class="mai-logo-google-plus-g"></span></a>
+            
             <a href="#" target="_blank"><span class="mai-logo-instagram"></span></a>
-            <a href="#" target="_blank"><span class="mai-logo-linkedin"></span></a>
+           
           </div>
         </div>
       </div>
 
       <hr>
 
-      <p id="copyright">Copyright &copy; 2020 <a href="https://macodeid.com/" target="_blank">MACode ID</a>. All right reserved</p>
+      <p id="copyright">Copyright &copy; 2023. All right reserved</p>
     </div>
   </footer>
 

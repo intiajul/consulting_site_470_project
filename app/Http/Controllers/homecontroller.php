@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Doctor;
 use App\Models\Appointment;
+use App\Models\Ambulance;
 
 class homecontroller extends Controller
 {
@@ -21,21 +22,43 @@ class homecontroller extends Controller
                 return view ('admin.home');
             }
       
-            } else {
+            } 
+            else 
+        {
             return redirect()->back();
-        }        
+        }          
     }
-    public function index() {
+    public function index() 
+    {
         if (Auth::id())
         {
             return redirect('home');
 
         }
-        else{
+        else
+        {
         $doctor=doctor::all();
         return view('user.home',compact('doctor'));
         }
-    }
+    }   
+    
+    public function indexA() 
+    {
+        if (Auth::id())
+        {
+            return redirect('home');
+
+        }
+        else
+        {
+        $ambulance=ambulance::all();
+        return view('user.home',compact('ambulance'));
+        }
+
+
+    }   
+
+
     public function appointment(Request $request)
     {
         $data=new appointment;
@@ -49,10 +72,38 @@ class homecontroller extends Controller
         
         if (Auth::id())
         {
-            $data->user_id=Auth::user()->id;
+        $data->user_id=Auth::user()->id;
         }
         
         $data->save();
         
+        return redirect()->back()->with('message','Your request has been sent successfully');
+    }
+
+    public function myappointment()
+    {
+        if(Auth::id())
+        {
+            if(Auth::user()->usertype==0)
+            {
+                $userid=Auth::user()->id;
+                $appoint=appointment::where('user_id',$userid)->get();
+                return view('user.my_appointment',compact('appoint'));
+            }
+           
+        }    
+        else
+        {
+            return redirect()->back();
+        }
+    }
+    public function cancel_appoint($id)
+    {
+        $data=appointment::find($id);
+        $data->delete();
+        return redirect()->back();
     }
 }
+
+
+
