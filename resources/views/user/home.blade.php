@@ -70,17 +70,9 @@
             <li class="nav-item active">
               <a class="nav-link" href="{{url('/')}}">Home</a>
             </li>
+           
             <li class="nav-item">
-              <a class="nav-link" href="{{url('about.html')}}">About Us</a>
-            </li>
-            <li class="nav-item">
-            <a href="{{asset('doctors.html')}}">Doctors</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{url('/')}}">News</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{url('/')}}">Contact</a>
+              <a class="nav-link" href="{{url('chatify')}}">Contact</a>
             </li>
 
             @if(Route::has('login'))
@@ -145,7 +137,7 @@
               <div class="circle-shape bg-secondary text-white">
                 <span class="mai-chatbubbles-outline"></span>
               </div>
-              <p><span>Chat</span> with a doctors</p>
+              <p><span>Chat</span> with Authorities</p>
             </div>
           </div>
           <div class="col-md-4 py-3 py-md-0">
@@ -179,13 +171,45 @@ Our state-of-the-art facilities and cutting-edge technology ensure that you rece
 
 That's why we strive to create a warm and welcoming environment that promotes healing and recovery.
 
-We are here for you every step of the way, from diagnosis to treatment and beyond. Thank you for choosing [Hospital Name] as your healthcare provider.</p>
+</p>
+            
+          </div>
+
+          <div class="col-lg-6 py-3 wow fadeInUp">
+            <h1>Book Ambulances <br></h1>
+            <p class="text-grey mb-4">Ashik 	
+                                      01843324535
+                                      NumberPlate: 3488 <br>
+
+                                      Moin 	
+                                      24242342424
+                                      NumberPlate: 1121  <br>
+
+                                      Juel 	
+                                      01345456324
+                                      NumberPlate: 1111  <br>
+</p>
+            
+          </div>
+
+          <div class="col-lg-6 py-3 wow fadeInUp">
+            <h1>Emergency Medical Contacts <br></h1>
+            <p class="text-grey mb-4">Emergency Doctor's office <br> 	
+                                      Telephone: +8801843335435 <br>
+                                      Medical Admission office <br> 	
+                                      Telephone: +23039482 <br>
+                                      Emergency pharmecy office <br> 	
+                                      Telephone: +24252553 <br>
+                                      Ambulance Office <br> 	
+                                      Telephone: +25558435 <br>
+                                      
+
+                              
+</p>
             
           </div>
           <div class="col-lg-6 wow fadeInRight" data-wow-delay="400ms">
-            <div class="img-place custom-img-1">
-              <img src="../assets/img/bg-doctor.png" alt="">
-            </div>
+            
           </div>
         </div>
       </div>
@@ -193,12 +217,11 @@ We are here for you every step of the way, from diagnosis to treatment and beyon
   </div> <!-- .bg-light -->
 
   @include ('user.doctors')
-  @include ('user.showambulance')
   
-
   @include ('user.latest') <!-- .page-section -->
 
-  @include ('user.appointment') <!-- .page-section -->
+  @include ('user.appointment')
+   <!-- .page-section -->
   
   
 

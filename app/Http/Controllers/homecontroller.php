@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Doctor;
 use App\Models\Appointment;
-use App\Models\Ambulance;
+
 
 class homecontroller extends Controller
 {
@@ -23,7 +23,7 @@ class homecontroller extends Controller
             }
       
             } 
-            else 
+        else 
         {
             return redirect()->back();
         }          
@@ -42,22 +42,7 @@ class homecontroller extends Controller
         }
     }   
     
-    public function indexA() 
-    {
-        if (Auth::id())
-        {
-            return redirect('home');
-
-        }
-        else
-        {
-        $ambulance=ambulance::all();
-        return view('user.home',compact('ambulance'));
-        }
-
-
-    }   
-
+    
 
     public function appointment(Request $request)
     {

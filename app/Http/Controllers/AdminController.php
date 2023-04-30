@@ -8,7 +8,7 @@ use App\Models\Appointment;
 use Notification;
 use App\Notifications\sendEmailNotification;
 use illuminate\Support\Facades\Auth;
-use App\Models\Ambulance;
+
 
 
 class AdminController extends Controller
@@ -145,6 +145,6 @@ class AdminController extends Controller
         $ambulance->save();
         return redirect()->back()->with('message','Vehicle Added Successfully!');
     }
-    
+      
 }
 

@@ -70,17 +70,11 @@
             <li class="nav-item active">
               <a class="nav-link" href="{{url('/')}}">Home</a>
             </li>
+            
+            
+            
             <li class="nav-item">
-              <a class="nav-link" href="{{url('/')}}">About Us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="doctors.html">Doctors</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="blog.html">News</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact</a>
+              <a class="nav-link" href="chatify">Contact</a>
             </li>
 
             @if(Route::has('login'))
